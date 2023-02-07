@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../../components/Button";
 import * as S from "./styles";
 
 export default function Login() {
@@ -12,7 +13,7 @@ export default function Login() {
         <S.Input />
         <S.P>Senha</S.P>
         <S.Input />
-        <Button>Entrar</Button>
+       <Button>Entrar</Button>
         <S.SingInLink>
           Não possui conta ? <a>SingUp</a>
         </S.SingInLink>
