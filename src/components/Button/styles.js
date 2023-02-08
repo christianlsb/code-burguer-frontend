@@ -14,4 +14,5 @@ export const Button = styled.button`
   font-size: ${themes.fontSizes.md};
   line-height: ${themes.lineHeights[6]};
   text-align: center;
+  ${props => props.isLogin && `margin-top: 68px;`}
 `;

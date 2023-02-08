@@ -1,6 +1,7 @@
 export const themes = {
   colors: {
     purple_600: "#9758A6",
+    WhiteAlpha_50: "#373737",
     white: "#FFFFFF",
   },
   fontSizes: {
