@@ -53,6 +53,7 @@ export const Input = styled.input`
   outline: none;
   padding-left: 12px;
   border: none;
+  border: ${props => props.error ? '2px solid #CC1717;' : 'none'};
 `;
 
 export const SingInLink = styled.p`
@@ -64,3 +65,10 @@ export const SingInLink = styled.p`
     color: ${themes.colors.white};
   }
 `;
+
+export const ErrorMassage = styled.p`
+  font-weight: ${themes.fontWeights.medium};
+  font-size: 14px;
+  line-height: 21px;
+  color: #CC1717;
+`
