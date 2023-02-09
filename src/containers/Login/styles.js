@@ -52,7 +52,6 @@ export const Input = styled.input`
   border-radius: 5px;
   outline: none;
   padding-left: 12px;
-  border: none;
   border: ${props => props.error ? '2px solid #CC1717;' : 'none'};
 `;
 

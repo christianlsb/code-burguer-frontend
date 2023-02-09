@@ -9,14 +9,20 @@ import * as S from "./styles";
 import LoginImg from "../../assets/hmg.svg";
 import LogoLogin from "../../assets/burger.svg";
 
-const schema = yup
+import api from "../../services/api"
+
+import { toast } from 'react-toastify';
+
+
+export default function Login() {
+
+  const schema = yup
   .object({
     email: yup.string().email("Digite um email válido").required("O email é obrigatório"),
     password: yup.string().required("A senha é obrigatória").min(6, "A senha deve conter no minimo 6 caracteres"),
   })
   .required();
 
-export default function Login() {
   const {
     register,
     handleSubmit,
@@ -24,7 +30,20 @@ export default function Login() {
   } = useForm({
     resolver: yupResolver(schema),
   });
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (clientData) => {
+    const response = await toast.promise(
+      api.post("sessions", {
+        email: clientData.email,
+        password: clientData.password
+      }), {
+        pending: 'Verificando seus dados',
+        success: 'Logado com sucesso',
+        error: 'Verifique seu e-mail ou senha'
+      }
+    )
+    console.log(response)
+    }
+  
   return (
     <S.Container>
       <S.LoginImage src={LoginImg} alt="login-img"/>
@@ -38,7 +57,7 @@ export default function Login() {
           <S.P>Senha</S.P>
           <S.Input type={"password"} {...register("password")} error={errors.password?.message}/>
           <S.ErrorMassage>{errors.password?.message}</S.ErrorMassage>
-          <Button isLogin={true}>Entrar</Button>
+          <Button isLogin={true} style={{marginTop: '67px'}}>Entrar</Button>
         </form>
         <S.SingInLink>
           Não possui conta ? <a href="/">SingUp</a>
