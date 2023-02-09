@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { ThemeProvider } from "styled-components";
-import Login from "./containers/Login";
+import SingUp from "./containers/SignUp";
 import GlobalStyle from "./styles/globalStyle";
 import { themes } from "./styles/theme";
 
@@ -12,7 +12,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>
     <ThemeProvider theme={themes}>
-      <Login />
+      <SingUp />
       <GlobalStyle /> 
       <ToastContainer/>
     </ThemeProvider>

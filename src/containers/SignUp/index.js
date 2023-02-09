@@ -10,6 +10,7 @@ import LoginImg from "../../assets/hmgFire.svg";
 import LogoLogin from "../../assets/burger.svg";
 
 import api from "../../services/api";
+import { toast } from "react-toastify";
 
 export default function Login() {
   const schema = yup
@@ -41,19 +42,33 @@ export default function Login() {
     resolver: yupResolver(schema),
   });
   const onSubmit = async (clientData) => {
-    const response = await api.post("users", {
-      name: clientData.name,
-      email: clientData.email,
-      password: clientData.password
-    })
-    console.log(response)
+    try {
+      const { status } = await api.post(
+        "users",
+        {
+          name: clientData.name,
+          email: clientData.email,
+          password: clientData.password,
+        },
+        { validateStatus: () => true }
+      );
+      if (status === 201 || status === 200) {
+        toast.success("Cadastro realizado");
+      } else if (status === 409) {
+        toast.error("E-mail já cadastrado! Faça login pra continuar");
+      } else {
+        throw new Error();
+      }
+    } catch (err) {
+      toast.error("Falha no sistema! Tente novamente");
     }
+  };
 
   return (
     <S.Container>
       <S.LoginImage src={LoginImg} alt="login-img" />
       <S.ContainerItens>
-        <img src={LogoLogin} alt="logo-img" style={{height: "80px"}} />
+        <img src={LogoLogin} alt="logo-img" style={{ height: "80px" }} />
         <S.Title>Cadastre-se</S.Title>
         <form noValidate onSubmit={handleSubmit(onSubmit)}>
           <S.P>Nome</S.P>
