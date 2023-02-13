@@ -11,6 +11,7 @@ import LogoLogin from "../../assets/burger.svg";
 
 import api from "../../services/api";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const schema = yup
@@ -102,7 +103,7 @@ export default function Login() {
           <Button style={{ marginTop: "28px" }}>Sign Up</Button>
         </form>
         <S.SingInLink>
-          Já possui conta? <a href="/">SignIn</a>
+          Já possui conta? <Link to="/">SignIn</Link>
         </S.SingInLink>
       </S.ContainerItens>
     </S.Container>

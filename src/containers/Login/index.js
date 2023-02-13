@@ -14,6 +14,7 @@ import api from "../../services/api";
 import { toast } from "react-toastify";
 
 import { useUser } from "../../hooks/UserContext";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const { putUserData, userData } = useUser();
@@ -79,7 +80,7 @@ export default function Login() {
           </Button>
         </form>
         <S.SingInLink>
-          Não possui conta ? <a href="/singup">SingUp</a>
+          Não possui conta ? <Link to="/singup">SingUp</Link>
         </S.SingInLink>
       </S.ContainerItens>
     </S.Container>

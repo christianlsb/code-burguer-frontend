@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import PropTypes from "prop-types";
 
 const UserContext = createContext({});
 
@@ -40,8 +39,4 @@ export const useUser = () => {
   }
 
   return context;
-};
-
-UserProvider.propTypes = {
-  children: PropTypes.node,
 };

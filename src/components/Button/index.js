@@ -1,6 +1,5 @@
 import React from "react";
 import * as S from "./styles";
-import PropTypes from "prop-types";
 
 export default function Button({ children, ...rest }) {
   return (
@@ -9,8 +8,3 @@ export default function Button({ children, ...rest }) {
     </div>
   );
 }
-
-Button.propTypes = {
-  children: PropTypes.string,
-  isLogin: PropTypes.bool,
-};
