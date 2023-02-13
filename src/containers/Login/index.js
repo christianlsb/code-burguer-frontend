@@ -79,7 +79,7 @@ export default function Login() {
           </Button>
         </form>
         <S.SingInLink>
-          Não possui conta ? <a href="/">SingUp</a>
+          Não possui conta ? <a href="/singup">SingUp</a>
         </S.SingInLink>
       </S.ContainerItens>
     </S.Container>
