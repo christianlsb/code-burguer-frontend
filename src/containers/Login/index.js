@@ -14,9 +14,12 @@ import api from "../../services/api";
 import { toast } from "react-toastify";
 
 import { useUser } from "../../hooks/UserContext";
-import { Link } from "react-router-dom";
 
-export default function Login() {
+import { Link, useNavigate } from "react-router-dom";
+
+ export default function Login() {
+  const navigate = useNavigate();
+
   const { putUserData, userData } = useUser();
   console.log(userData);
   const schema = yup
@@ -51,7 +54,12 @@ export default function Login() {
         error: "Verifique seu e-mail ou senha",
       }
     );
+
     putUserData(data);
+
+    setTimeout(() => {
+      navigate("/home");
+    }, 1000);
   };
 
   return (
