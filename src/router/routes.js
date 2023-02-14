@@ -12,7 +12,7 @@ export default function RoutesApp() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
         <Route path="/singup" element={<SingUp />} />
         <Route
           path="/home"

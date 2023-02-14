@@ -103,7 +103,7 @@ export default function Login() {
           <Button style={{ marginTop: "28px" }}>Sign Up</Button>
         </form>
         <S.SingInLink>
-          Já possui conta? <Link to="/login">SignIn</Link>
+          Já possui conta? <Link to="/">SignIn</Link>
         </S.SingInLink>
       </S.ContainerItens>
     </S.Container>
