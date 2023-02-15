@@ -39,6 +39,7 @@ export const Button = styled.button`
   &:active {
     opacity: 0.6;
   }
+  margin-bottom: 25px;
 `;
 
 export const Container = styled.div`
