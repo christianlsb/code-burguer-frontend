@@ -1,25 +1,23 @@
-import styled from "styled-components";
+  import styled from "styled-components";
 
-export const CategoryImg = styled.img`
-  width: 412px;
-height: 71px;
-margin-top: 47px;
-`;
-
-
-export const ContainerCategory = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 36px 0 0 25px;
-  background-color: #efefef;
+  export const CategoryImg = styled.img`
+    width: 412px;
+    height: 71px;
   `;
-export const ImageCategory = styled.img`
-  height: 315px;
-   width: 315px;
-   border-radius: 15px;
-`
+
+  export const ContainerCategory = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 36px 0 0 25px;
+    background-color: #efefef;
+  `;
+  export const ImageCategory = styled.img`
+    height: 315px;
+    width: 315px;
+    border-radius: 15px;
+  `;
 
   export const Button = styled.button`
     width: 283.4px;
@@ -37,18 +35,21 @@ export const ImageCategory = styled.img`
     color: #ffffff;
     cursor: pointer;
     margin-top: 16px;
-    &:hover{
+    &:hover {
       opacity: 0.8;
     }
-    &:active{
+    &:active {
       opacity: 0.6;
     }
   `;
 
-
-export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #efefef;
-`
+  export const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #efefef;
+    .rec.rec-pagination {
+      display: none;
+    }
+    padding: 35px 0px;
+  `;
