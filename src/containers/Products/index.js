@@ -7,10 +7,12 @@ import * as S from "./styles";
 import api from "../../services/api";
 import CardProduct from "../../components/CardProduct";
 
+import formatCurrency from "../../utils/formatCurrency";
+
 export default function Products() {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
-
+  const [filteredProducts, setfilteredProducts] = useState([]);
   const [activeCategory, setActiveCategory] = useState(0);
 
   useEffect(() => {
@@ -20,16 +22,34 @@ export default function Products() {
       const newCategory = [{ id: 0, name: "Todas" }, ...data];
 
       setCategories(newCategory);
+
+      console.log(newCategory);
     }
 
     async function loadProducts() {
-      const { data } = await api.get("products");
+      const { data: allProducts } = await api.get("products");
 
-      setProducts(data);
+      const newProducts = allProducts.map((product) => {
+        return { ...product, formatCurrency: formatCurrency(product.price) };
+      });
+      console.log(newProducts);
+      setProducts(newProducts);
     }
     loadCategories();
     loadProducts();
   }, []);
+
+  useEffect(() => {
+    if (activeCategory === 0) {
+      setfilteredProducts(products);
+    } else {
+      const newFiltredProduct = products.filter(
+        (product) => product.categoryId === activeCategory
+      );
+
+      setfilteredProducts(newFiltredProduct);
+    }
+  }, [activeCategory, products]);
 
   return (
     <>
@@ -51,8 +71,8 @@ export default function Products() {
             ))}
         </S.ContainerCategory>
         <S.ProductsContainer>
-          {products &&
-            products.map((product) => (
+          {filteredProducts &&
+            filteredProducts.map((product) => (
               <CardProduct key={product.id} product={product} />
             ))}
         </S.ProductsContainer>
