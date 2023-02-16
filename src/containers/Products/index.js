@@ -5,7 +5,7 @@ import ProductLogo from "../../assets/logoProducts.svg";
 import * as S from "./styles";
 
 import api from "../../services/api";
-import CardProduct from "../../components/CardProduct";
+import {CardProduct} from "../../components";
 
 import formatCurrency from "../../utils/formatCurrency";
 

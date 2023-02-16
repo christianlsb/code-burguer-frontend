@@ -3,8 +3,7 @@ import HomeLogo from "../../assets/logoHome.png";
 
 import * as S from "./styles";
 
-import CaregoryCarousel from "../../components/CaregoryCarousel";
-import OfferCarousel from "../../components/OfferCarousel";
+import {CaregoryCarousel, OfferCarousel} from "../../components"
 
 export default function Home() {
   return (

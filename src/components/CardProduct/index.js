@@ -2,9 +2,9 @@ import React from 'react';
 
 import * as S from "./styles"
 
-import Button from "../Button"
+import {Button} from "../../components"
 
-export default function CardProduct({product}) {
+export function CardProduct({product}) {
  return (
    <>
       <S.Container>

@@ -10,7 +10,7 @@ import Carousel from "react-elastic-carousel";
 
 import formatCurrency from "../../utils/formatCurrency";
 
-export default function OfferCarousel() {
+export function OfferCarousel() {
   const [offers, setOffers] = useState([]);
 
   useEffect(() => {
