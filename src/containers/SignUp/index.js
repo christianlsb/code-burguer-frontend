@@ -13,7 +13,7 @@ import api from "../../services/api";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 
-export default function Login() {
+export function SignUp() {
   const schema = yup
     .object({
       name: yup.string().required("O nome é obrigatório"),

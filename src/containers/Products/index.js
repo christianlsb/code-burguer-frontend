@@ -9,7 +9,7 @@ import {CardProduct} from "../../components";
 
 import formatCurrency from "../../utils/formatCurrency";
 
-export default function Products() {
+export function Products() {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
   const [filteredProducts, setfilteredProducts] = useState([]);

@@ -17,7 +17,7 @@ import { useUser } from "../../hooks/UserContext";
 
 import { Link, useNavigate } from "react-router-dom";
 
- export default function Login() {
+ export function Login() {
   const navigate = useNavigate();
 
   const { putUserData, userData } = useUser();

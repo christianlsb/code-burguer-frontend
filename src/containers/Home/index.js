@@ -5,7 +5,7 @@ import * as S from "./styles";
 
 import {CaregoryCarousel, OfferCarousel} from "../../components"
 
-export default function Home() {
+export function Home() {
   return (
     <>
       <S.Container>

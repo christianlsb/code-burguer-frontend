@@ -2,11 +2,8 @@ import React from "react";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import Login from "../containers/Login";
-import SingUp from "../containers/SignUp";
+import {Login,SignUp,Home,Products} from "../containers/";
 
-import Home from "../containers/Home";
-import Products from "../containers/Products";
 
 import PrivateRoute from "./private-route";
 
@@ -15,7 +12,7 @@ export default function RoutesApp() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/singup" element={<SingUp />} />
+        <Route path="/singup" element={<SignUp />} />
         <Route
           path="/home"
           element={
