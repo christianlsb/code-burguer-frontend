@@ -5,7 +5,7 @@ import { themes } from "./styles/theme";
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from "./styles/globalStyle";
 
-import { UserProvider } from "./hooks/UserContext";
+import AppProvider from "./hooks";
 
 import { ToastContainer } from "react-toastify";
 
@@ -14,9 +14,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>
     <ThemeProvider theme={themes}>
-      <UserProvider>
+      <AppProvider>
         <RoutesApp />
-      </UserProvider>
+      </AppProvider>
       <GlobalStyle />
       <ToastContainer />
     </ThemeProvider>
