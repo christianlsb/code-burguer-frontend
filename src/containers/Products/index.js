@@ -5,7 +5,7 @@ import ProductLogo from "../../assets/logoProducts.svg";
 import * as S from "./styles";
 
 import api from "../../services/api";
-import {CardProduct} from "../../components";
+import { CardProduct } from "../../components";
 
 import formatCurrency from "../../utils/formatCurrency";
 
@@ -22,8 +22,6 @@ export function Products() {
       const newCategory = [{ id: 0, name: "Todas" }, ...data];
 
       setCategories(newCategory);
-
-      console.log(newCategory);
     }
 
     async function loadProducts() {
@@ -32,7 +30,7 @@ export function Products() {
       const newProducts = allProducts.map((product) => {
         return { ...product, formatCurrency: formatCurrency(product.price) };
       });
-      console.log(newProducts);
+
       setProducts(newProducts);
     }
     loadCategories();
