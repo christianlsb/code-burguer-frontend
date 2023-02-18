@@ -8,35 +8,35 @@ export const CartProvider = ({ children }) => {
   const putProductsInCart = async (product) => {
     const cartIndex = cartProdcuts.findIndex((prd) => prd.id === product.id);
 
-    let newCartProdcuts = [];
+    let newCartProducts = [];
     if (cartIndex >= 0) {
-      const newCartProdcuts = cartProdcuts;
+      newCartProducts = cartProdcuts;
 
-      newCartProdcuts[cartIndex].quantity =
-        newCartProdcuts[cartIndex].quantity + 1;
-
-      setCartProdcuts(newCartProdcuts);
+      newCartProducts[cartIndex].quantity =
+        newCartProducts[cartIndex].quantity + 1;
+      setCartProdcuts(newCartProducts);
     } else {
       product.quantity = 1;
-      newCartProdcuts = [...cartProdcuts, product];
-      setCartProdcuts(newCartProdcuts);
-    } 
+      newCartProducts = [...cartProdcuts, product];
+      setCartProdcuts(newCartProducts);
+    }
+
     await localStorage.setItem(
       "codeburguer:cartInfo",
-      JSON.stringify(newCartProdcuts)
+      JSON.stringify(newCartProducts)
     );
   };
 
-  useEffect(() => {
-    const loadCartDate = async () => {
-      const clientCartData = await localStorage.getItem("codeburguer:cartInfo");
+  // useEffect(() => {
+  //   const loadCartDate = async () => {
+  //     const clientCartData = await localStorage.getItem("codeburguer:cartInfo");
 
-      if (clientCartData) {
-        setCartProdcuts(JSON.parse(clientCartData));
-      }
-    };
-    loadCartDate();
-  }, []);
+  //     if (clientCartData) {
+  //       setCartProdcuts(JSON.parse(clientCartData));
+  //     }
+  //   };
+  //   loadCartDate();
+  // }, []);
 
   return (
     <CartContext.Provider value={{ putProductsInCart, cartProdcuts }}>
