@@ -27,16 +27,16 @@ export const CartProvider = ({ children }) => {
     );
   };
 
-  // useEffect(() => {
-  //   const loadCartDate = async () => {
-  //     const clientCartData = await localStorage.getItem("codeburguer:cartInfo");
+  useEffect(() => {
+    const loadCartDate = async () => {
+      const clientCartData = await localStorage.getItem("codeburguer:cartInfo");
 
-  //     if (clientCartData) {
-  //       setCartProdcuts(JSON.parse(clientCartData));
-  //     }
-  //   };
-  //   loadCartDate();
-  // }, []);
+      if (clientCartData) {
+        setCartProdcuts(JSON.parse(clientCartData));
+      }
+    };
+    loadCartDate();
+  }, []);
 
   return (
     <CartContext.Provider value={{ putProductsInCart, cartProdcuts }}>

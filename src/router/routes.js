@@ -2,8 +2,7 @@ import React from "react";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import {Login,SignUp,Home,Products} from "../containers/";
-
+import { Login, SignUp, Home, Products, Cart } from "../containers/";
 
 import PrivateRoute from "./private-route";
 
@@ -26,6 +25,14 @@ export default function RoutesApp() {
           element={
             <PrivateRoute>
               <Products />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/cart"
+          element={
+            <PrivateRoute>
+              <Cart />
             </PrivateRoute>
           }
         />
