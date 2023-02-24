@@ -28,11 +28,21 @@ export const Body = styled.div`
     width: 120px;
     height: 120px;
   }
-  p{
+  p {
     font-size: 1em;
+  }
+  .quantity-container {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    button {
+      height: 30px;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 24px;
+    }
   }
 `;
 
-export const EmptyCard = styled.p`
-
-`
+export const EmptyCard = styled.p``;
