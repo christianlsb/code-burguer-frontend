@@ -1,10 +1,8 @@
-import React from "react";
+import React from "react"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-
-import { Login, SignUp, Home, Products, Cart } from "../containers/";
-
-import PrivateRoute from "./private-route";
+import { Login, SignUp, Home, Products, Cart } from "../containers/"
+import PrivateRoute from "./private-route"
 
 export default function RoutesApp() {
   return (
@@ -38,5 +36,5 @@ export default function RoutesApp() {
         />
       </Routes>
     </BrowserRouter>
-  );
+  )
 }

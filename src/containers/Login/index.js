@@ -1,27 +1,22 @@
-import React from "react";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup"
+import React from "react"
+import { useForm } from "react-hook-form"
+import { Link, useNavigate } from "react-router-dom"
+import { toast } from "react-toastify"
+import * as yup from "yup"
 
-import {Button} from "../../components";
-import * as S from "./styles";
+import LogoLogin from "../../assets/burger.svg"
+import LoginImg from "../../assets/hmg.svg"
+import { Button } from "../../components"
+import { useUser } from "../../hooks/UserContext"
+import api from "../../services/api"
+import * as S from "./styles"
 
-import LoginImg from "../../assets/hmg.svg";
-import LogoLogin from "../../assets/burger.svg";
+export function Login() {
+  const navigate = useNavigate()
 
-import api from "../../services/api";
-
-import { toast } from "react-toastify";
-
-import { useUser } from "../../hooks/UserContext";
-
-import { Link, useNavigate } from "react-router-dom";
-
- export function Login() {
-  const navigate = useNavigate();
-
-  const { putUserData, userData } = useUser();
-  console.log(userData);
+  const { putUserData, userData } = useUser()
+  console.log(userData)
   const schema = yup
     .object({
       email: yup
@@ -31,36 +26,36 @@ import { Link, useNavigate } from "react-router-dom";
       password: yup
         .string()
         .required("A senha é obrigatória")
-        .min(6, "A senha deve conter no minimo 6 caracteres"),
+        .min(6, "A senha deve conter no minimo 6 caracteres")
     })
-    .required();
+    .required()
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }
   } = useForm({
-    resolver: yupResolver(schema),
-  });
-  const onSubmit = async (clientData) => {
+    resolver: yupResolver(schema)
+  })
+  const onSubmit = async clientData => {
     const { data } = await toast.promise(
       api.post("sessions", {
         email: clientData.email,
-        password: clientData.password,
+        password: clientData.password
       }),
       {
         pending: "Verificando seus dados",
         success: "Logado com sucesso",
-        error: "Verifique seu e-mail ou senha",
+        error: "Verifique seu e-mail ou senha"
       }
-    );
+    )
 
-    putUserData(data);
+    putUserData(data)
 
     setTimeout(() => {
-      navigate("/home");
-    }, 1000);
-  };
+      navigate("/home")
+    }, 1000)
+  }
 
   return (
     <S.Container>
@@ -92,5 +87,5 @@ import { Link, useNavigate } from "react-router-dom";
         </S.SingInLink>
       </S.ContainerItens>
     </S.Container>
-  );
+  )
 }

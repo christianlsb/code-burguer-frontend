@@ -1,20 +1,17 @@
-import React from "react";
+import React from "react"
 
-import * as S from "./styles";
-
-import BackgorundCart from "../../assets/bgCart.svg";
-
-import { useCart } from "../../hooks/CartContext";
-
-import formatCurrency from "../../utils/formatCurrency";
+import BackgorundCart from "../../assets/bgCart.svg"
+import { useCart } from "../../hooks/CartContext"
+import formatCurrency from "../../utils/formatCurrency"
+import * as S from "./styles"
 
 export function Cart() {
-  const { cartProdcuts } = useCart();
-  console.log(cartProdcuts);
+  const { cartProdcuts } = useCart()
+  console.log(cartProdcuts)
 
   return (
     <>
-      <img src={BackgorundCart} style={{ width: "100%" }} />
+      <img src={BackgorundCart} style={{ width: "100%" }} alt="img-bg" />
       <S.Container>
         <S.Header>
           <p></p>
@@ -24,7 +21,7 @@ export function Cart() {
           <p>Total</p>
         </S.Header>
         {cartProdcuts && cartProdcuts.length > 0 ? (
-          cartProdcuts.map((product) => (
+          cartProdcuts.map(product => (
             <S.Body key={product.id}>
               <img src={product.url} alt="Img_Prodcut" />
               <p>{product.name}</p>
@@ -42,5 +39,5 @@ export function Cart() {
         )}
       </S.Container>
     </>
-  );
+  )
 }

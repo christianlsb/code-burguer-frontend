@@ -1,33 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react"
+import Carousel from "react-elastic-carousel"
 
-import * as S from "./styles";
-
-import OfferImage from "../../assets/OFERTAS.png";
-
-import api from "../../services/api";
-
-import Carousel from "react-elastic-carousel";
-
-import formatCurrency from "../../utils/formatCurrency";
+import OfferImage from "../../assets/OFERTAS.png"
+import api from "../../services/api"
+import formatCurrency from "../../utils/formatCurrency"
+import * as S from "./styles"
 
 export function OfferCarousel() {
-  const [offers, setOffers] = useState([]);
+  const [offers, setOffers] = useState([])
 
   useEffect(() => {
     async function loadOffers() {
-      const { data } = await api.get("products");
+      const { data } = await api.get("products")
 
       const offerFiltter = data
-        .filter((product) => product.offer)
-        .map((product) => {
-          return { ...product, formatedPrice: formatCurrency(product.price) };
-        });
+        .filter(product => product.offer)
+        .map(product => {
+          return { ...product, formatedPrice: formatCurrency(product.price) }
+        })
 
-      setOffers(offerFiltter);
+      setOffers(offerFiltter)
     }
 
-    loadOffers();
-  }, []);
+    loadOffers()
+  }, [])
 
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
@@ -35,8 +31,8 @@ export function OfferCarousel() {
     { width: 850, itemsToShow: 3 },
     { width: 1150, itemsToShow: 4, itemsToScroll: 2 },
     { width: 1450, itemsToShow: 5 },
-    { width: 1750, itemsToShow: 6 },
-  ];
+    { width: 1750, itemsToShow: 6 }
+  ]
 
   return (
     <>
@@ -49,7 +45,7 @@ export function OfferCarousel() {
           breakPoints={breakPoints}
         >
           {offers &&
-            offers.map((product) => (
+            offers.map(product => (
               <S.ContainerOffer key={product.id}>
                 <S.ImageOffer src={product.url} alt={"file name product"} />
                 <S.NameOffer>{product.name}</S.NameOffer>
@@ -60,5 +56,5 @@ export function OfferCarousel() {
         </Carousel>
       </S.Container>
     </>
-  );
+  )
 }

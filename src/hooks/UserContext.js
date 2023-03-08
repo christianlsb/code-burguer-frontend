@@ -1,42 +1,44 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import PropTypes from "prop-types"
+import React, { createContext, useContext, useEffect, useState } from "react"
 
-const UserContext = createContext({});
+const UserContext = createContext({})
 
 export const UserProvider = ({ children }) => {
-  const [userData, setUserData] = useState({});
+  const [userData, setUserData] = useState({})
 
-  const putUserData = async (userInfo) => {
-    setUserData(userInfo);
+  const putUserData = async userInfo => {
+    setUserData(userInfo)
 
-    await localStorage.setItem(
-      "codeburguer:userData",
-      JSON.stringify(userInfo)
-    );
-  };
+    await localStorage.setItem("codeburguer:userData", JSON.stringify(userInfo))
+  }
 
   useEffect(() => {
     const loadUserDate = async () => {
-      const clientInfo = await localStorage.getItem("codeburguer:userData");
+      const clientInfo = await localStorage.getItem("codeburguer:userData")
       if (clientInfo) {
-        setUserData(JSON.parse(clientInfo));
+        setUserData(JSON.parse(clientInfo))
       }
-    };
-    loadUserDate();
-  }, []);
+    }
+    loadUserDate()
+  }, [])
 
   return (
     <UserContext.Provider value={{ putUserData, userData }}>
       {children}
     </UserContext.Provider>
-  );
-};
+  )
+}
 
 export const useUser = () => {
-  const context = useContext(UserContext);
+  const context = useContext(UserContext)
 
   if (!context) {
-    throw new Error("useUser must be used with UserContext");
+    throw new Error("useUser must be used with UserContext")
   }
 
-  return context;
-};
+  return context
+}
+
+UserProvider.propTypes = {
+  children: PropTypes.node.isRequired
+}

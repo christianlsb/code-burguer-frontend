@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const Container = styled.div`
   background: #ffffff;
@@ -6,7 +6,7 @@ export const Container = styled.div`
   border-radius: 20px;
   padding: 10px;
   width: max-content;
-`;
+`
 
 export const Header = styled.div`
   display: grid;
@@ -16,7 +16,7 @@ export const Header = styled.div`
   p {
     font-size: 16px;
   }
-`;
+`
 export const Body = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -43,6 +43,6 @@ export const Body = styled.div`
       font-size: 24px;
     }
   }
-`;
+`
 
-export const EmptyCard = styled.p``;
+export const EmptyCard = styled.p``

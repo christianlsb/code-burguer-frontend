@@ -1,5 +1,6 @@
-import styled from "styled-components";
-import { themes } from "../../styles/theme";
+import styled from "styled-components"
+
+import { themes } from "../../styles/theme"
 
 export const Button = styled.button`
   width: 182.81px;
@@ -14,4 +15,4 @@ export const Button = styled.button`
   font-size: ${themes.fontSizes.md};
   line-height: ${themes.lineHeights[6]};
   text-align: center;
-`;
+`

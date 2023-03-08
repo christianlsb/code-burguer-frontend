@@ -1,17 +1,15 @@
-import React from "react";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup"
+import React from "react"
+import { useForm } from "react-hook-form"
+import { Link } from "react-router-dom"
+import { toast } from "react-toastify"
+import * as yup from "yup"
 
-import {Button} from "../../components";
-import * as S from "./styles";
-
-import LoginImg from "../../assets/hmgFire.svg";
-import LogoLogin from "../../assets/burger.svg";
-
-import api from "../../services/api";
-import { toast } from "react-toastify";
-import { Link } from "react-router-dom";
+import LogoLogin from "../../assets/burger.svg"
+import LoginImg from "../../assets/hmgFire.svg"
+import { Button } from "../../components"
+import api from "../../services/api"
+import * as S from "./styles"
 
 export function SignUp() {
   const schema = yup
@@ -31,39 +29,39 @@ export function SignUp() {
       confirmPwd: yup
         .string()
         .required("A senha é obrigatória")
-        .oneOf([yup.ref("password")], "As senhas não são iguais"),
+        .oneOf([yup.ref("password")], "As senhas não são iguais")
     })
-    .required();
+    .required()
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }
   } = useForm({
-    resolver: yupResolver(schema),
-  });
-  const onSubmit = async (clientData) => {
+    resolver: yupResolver(schema)
+  })
+  const onSubmit = async clientData => {
     try {
       const { status } = await api.post(
         "users",
         {
           name: clientData.name,
           email: clientData.email,
-          password: clientData.password,
+          password: clientData.password
         },
         { validateStatus: () => true }
-      );
+      )
       if (status === 201 || status === 200) {
-        toast.success("Cadastro realizado");
+        toast.success("Cadastro realizado")
       } else if (status === 409) {
-        toast.error("E-mail já cadastrado! Faça login pra continuar");
+        toast.error("E-mail já cadastrado! Faça login pra continuar")
       } else {
-        throw new Error();
+        throw new Error()
       }
     } catch (err) {
-      toast.error("Falha no sistema! Tente novamente");
+      toast.error("Falha no sistema! Tente novamente")
     }
-  };
+  }
 
   return (
     <S.Container>
@@ -107,5 +105,5 @@ export function SignUp() {
         </S.SingInLink>
       </S.ContainerItens>
     </S.Container>
-  );
+  )
 }

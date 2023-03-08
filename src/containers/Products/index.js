@@ -1,53 +1,50 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react"
 
-import ProductLogo from "../../assets/logoProducts.svg";
-
-import * as S from "./styles";
-
-import api from "../../services/api";
-import { CardProduct } from "../../components";
-
-import formatCurrency from "../../utils/formatCurrency";
+import ProductLogo from "../../assets/logoProducts.svg"
+import { CardProduct } from "../../components"
+import api from "../../services/api"
+import formatCurrency from "../../utils/formatCurrency"
+import * as S from "./styles"
 
 export function Products() {
-  const [categories, setCategories] = useState([]);
-  const [products, setProducts] = useState([]);
-  const [filteredProducts, setfilteredProducts] = useState([]);
-  const [activeCategory, setActiveCategory] = useState(0);
+  const [categories, setCategories] = useState([])
+  const [products, setProducts] = useState([])
+  const [filteredProducts, setfilteredProducts] = useState([])
+  const [activeCategory, setActiveCategory] = useState(0)
 
   useEffect(() => {
     async function loadCategories() {
-      const { data } = await api.get("categories");
+      const { data } = await api.get("categories")
 
-      const newCategory = [{ id: 0, name: "Todas" }, ...data];
+      const newCategory = [{ id: 0, name: "Todas" }, ...data]
 
-      setCategories(newCategory);
+      setCategories(newCategory)
     }
 
     async function loadProducts() {
-      const { data: allProducts } = await api.get("products");
+      const { data: allProducts } = await api.get("products")
 
-      const newProducts = allProducts.map((product) => {
-        return { ...product, formatCurrency: formatCurrency(product.price) };
-      });
+      const newProducts = allProducts.map(product => {
+        return { ...product, formatCurrency: formatCurrency(product.price) }
+      })
 
-      setProducts(newProducts);
+      setProducts(newProducts)
     }
-    loadCategories();
-    loadProducts();
-  }, []);
+    loadCategories()
+    loadProducts()
+  }, [])
 
   useEffect(() => {
     if (activeCategory === 0) {
-      setfilteredProducts(products);
+      setfilteredProducts(products)
     } else {
       const newFiltredProduct = products.filter(
-        (product) => product.categoryId === activeCategory
-      );
+        product => product.categoryId === activeCategory
+      )
 
-      setfilteredProducts(newFiltredProduct);
+      setfilteredProducts(newFiltredProduct)
     }
-  }, [activeCategory, products]);
+  }, [activeCategory, products])
 
   return (
     <>
@@ -55,13 +52,13 @@ export function Products() {
         <S.ProductImage src={ProductLogo} alt={"logo-product"} />
         <S.ContainerCategory>
           {categories &&
-            categories.map((category) => (
+            categories.map(category => (
               <S.CategoryButton
                 key={category.id}
                 type={"button"}
                 isActiveCategory={activeCategory === category.id}
                 onClick={() => {
-                  setActiveCategory(category.id);
+                  setActiveCategory(category.id)
                 }}
               >
                 {category.name}
@@ -70,11 +67,11 @@ export function Products() {
         </S.ContainerCategory>
         <S.ProductsContainer>
           {filteredProducts &&
-            filteredProducts.map((product) => (
+            filteredProducts.map(product => (
               <CardProduct key={product.id} product={product} />
             ))}
         </S.ProductsContainer>
       </S.Container>
     </>
-  );
+  )
 }

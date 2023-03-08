@@ -1,21 +1,21 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const OfferImg = styled.img`
   width: 273px;
   height: 65px;
   margin-top: 35px;
-`;
+`
 
 export const ContainerOffer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 36px 0 0 25px;
-`;
+`
 export const ImageOffer = styled.img`
   height: 315px;
   width: 315px;
   border-radius: 15px;
-`;
+`
 
 export const Button = styled.button`
   width: 283.4px;
@@ -40,7 +40,7 @@ export const Button = styled.button`
     opacity: 0.6;
   }
   margin-bottom: 25px;
-`;
+`
 
 export const Container = styled.div`
   display: flex;
@@ -49,7 +49,7 @@ export const Container = styled.div`
   .rec.rec-pagination {
     display: none;
   }
-`;
+`
 
 export const NameOffer = styled.h3`
   font-weight: 700;
@@ -57,7 +57,7 @@ export const NameOffer = styled.h3`
   line-height: 120%;
   color: #424242;
   margin-top: 16px;
-`;
+`
 
 export const ValueOffer = styled.p`
   font-weight: 700;
@@ -66,4 +66,4 @@ export const ValueOffer = styled.p`
   color: #212121;
   margin-top: 8px;
   margin-bottom: 16px;
-`;
+`

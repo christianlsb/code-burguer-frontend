@@ -1,25 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react"
+import Carousel from "react-elastic-carousel"
 
-import * as S from "./styles";
-
-import CategoryImage from "../../assets/CATEGORIAS.png";
-
-import api from "../../services/api";
-
-import Carousel from "react-elastic-carousel";
+import CategoryImage from "../../assets/CATEGORIAS.png"
+import api from "../../services/api"
+import * as S from "./styles"
 
 export function CaregoryCarousel() {
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState([])
 
   useEffect(() => {
     async function loadCategories() {
-      const { data } = await api.get("categories");
+      const { data } = await api.get("categories")
 
-      setCategories(data);
+      setCategories(data)
     }
 
-    loadCategories();
-  }, []);
+    loadCategories()
+  }, [])
 
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
@@ -27,8 +24,8 @@ export function CaregoryCarousel() {
     { width: 850, itemsToShow: 3 },
     { width: 1150, itemsToShow: 4, itemsToScroll: 2 },
     { width: 1450, itemsToShow: 5 },
-    { width: 1750, itemsToShow: 6 },
-  ];
+    { width: 1750, itemsToShow: 6 }
+  ]
 
   return (
     <>
@@ -41,7 +38,7 @@ export function CaregoryCarousel() {
           breakPoints={breakPoints}
         >
           {categories &&
-            categories.map((category) => (
+            categories.map(category => (
               <S.ContainerCategory key={category.id}>
                 <S.ImageCategory
                   src={category.url}
@@ -53,5 +50,5 @@ export function CaregoryCarousel() {
         </Carousel>
       </S.Container>
     </>
-  );
+  )
 }

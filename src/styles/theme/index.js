@@ -2,7 +2,7 @@ export const themes = {
   colors: {
     purple_600: "#9758A6",
     WhiteAlpha_50: "#373737",
-    white: "#FFFFFF",
+    white: "#FFFFFF"
   },
   fontSizes: {
     xs: "0.75rem",
@@ -17,7 +17,7 @@ export const themes = {
     "6xl": "3.75rem",
     "7xl": "4.5rem",
     "8xl": "6rem",
-    "9xl": "8rem",
+    "9xl": "8rem"
   },
   fontWeights: {
     hairline: 100,
@@ -28,7 +28,7 @@ export const themes = {
     semibold: 600,
     bold: 700,
     extrabold: 800,
-    black: 900,
+    black: 900
   },
   lineHeights: {
     normal: "normal",
@@ -45,6 +45,6 @@ export const themes = {
     7: "1.75rem",
     8: "2rem",
     9: "2.25rem",
-    10: "2.5rem",
-  },
-};
+    10: "2.5rem"
+  }
+}

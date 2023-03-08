@@ -1,6 +1,7 @@
-import styled from "styled-components";
-import Background from "../../assets/bg.svg";
-import { themes } from "../../styles/theme";
+import styled from "styled-components"
+
+import Background from "../../assets/bg.svg"
+import { themes } from "../../styles/theme"
 
 export const Container = styled.div`
   height: 100vh;
@@ -9,11 +10,11 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`;
+`
 
 export const LoginImage = styled.img`
   height: 70%;
-`;
+`
 
 export const ContainerItens = styled.div`
   display: flex;
@@ -24,7 +25,7 @@ export const ContainerItens = styled.div`
   height: 70%;
   border-radius: 0 10px 10px 0;
   padding: 25px 75px;
-`;
+`
 
 export const Title = styled.h1`
   font-weight: ${themes.fontWeights.medium};
@@ -33,7 +34,7 @@ export const Title = styled.h1`
   color: ${themes.colors.white};
   text-align: center;
   margin-top: 19px;
-`;
+`
 
 export const P = styled.p`
   font-weight: ${themes.fontWeights.medium};
@@ -42,7 +43,7 @@ export const P = styled.p`
   color: ${themes.colors.white};
   margin-top: 28px;
   margin-bottom: 3px;
-`;
+`
 
 export const Input = styled.input`
   width: 391.42px;
@@ -52,8 +53,8 @@ export const Input = styled.input`
   border-radius: 5px;
   outline: none;
   padding-left: 12px;
-  border: ${props => props.error ? '2px solid #CC1717;' : 'none'};
-`;
+  border: ${props => (props.error ? "2px solid #CC1717;" : "none")};
+`
 
 export const SingInLink = styled.p`
   font-weight: ${themes.fontWeights.normal};
@@ -63,11 +64,11 @@ export const SingInLink = styled.p`
   a {
     color: ${themes.colors.white};
   }
-`;
+`
 
 export const ErrorMassage = styled.p`
   font-weight: ${themes.fontWeights.medium};
   font-size: 14px;
   line-height: 21px;
-  color: #CC1717;
+  color: #cc1717;
 `
