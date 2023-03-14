@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 
 import BackgorundCart from "../../assets/bgCart.svg"
 import { useCart } from "../../hooks/CartContext"
@@ -8,6 +8,15 @@ import * as S from "./styles"
 export function Cart() {
   const { cartProdcuts, incrementProduct, decrementProduct } = useCart()
   console.log(cartProdcuts)
+
+  const [allItens, setAllItens] = useState(0)
+
+  useEffect(() => {
+    const valueFinal = cartProdcuts.reduce((acc, current) => {
+      return current.price * current.quantity + acc
+    }, 0)
+    setAllItens(valueFinal)
+  }, [cartProdcuts])
 
   return (
     <>
@@ -37,6 +46,8 @@ export function Cart() {
         ) : (
           <S.EmptyCard>Cart empty</S.EmptyCard>
         )}
+
+        <p>Valor total: {allItens}</p>
       </S.Container>
     </>
   )
